@@ -4,46 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-
-    <EditText
-        android:id="@+id/etUsername"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginRight="20dp"
-        android:drawableRight="@drawable/ic_username"
-        android:hint="  Username"
-        android:textColorHint="@color/white" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:drawableRight="@drawable/ic_password"
-        android:hint="  Password"
-        android:inputType="textPassword"
-
-        android:textColorHint="@color/white" />
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/login" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="5dp"
-        android:text="Forget Password?"
-        android:textColor="@color/white" />
+        android:layout_marginLeft="20dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Hey There,"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Welcome To Login Page!" />
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:drawableRight="@drawable/ic_username"
+        android:focusable="true"
+        android:hint="Enter Username" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:drawableRight="@drawable/ic_password"
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnLogin"
-        style="@style/custom_login_button_style"
-        android:background="@drawable/custom_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:minWidth="350dp"
         android:text="Login" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/regInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="5dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Not Registered?" />
+
+        <TextView
+            android:id="@+id/registerInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/regInfo"
+            android:fontFamily="sans-serif-black"
+            android:linksClickable="true"
+            android:text="@string/regiser" />
+    </RelativeLayout>
 
 </LinearLayout>
