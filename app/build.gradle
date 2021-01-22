@@ -66,5 +66,7 @@ dependencies {
     //Splash : https://lottiefiles.com/blog/working-with-lottie/getting-started-with-lottie-animations-in-android-app
     def lottieVersion = "3.6.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 }
 
