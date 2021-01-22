@@ -39,23 +39,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.btnRegister -> {
 
-                if (TextUtils.isEmpty(etFullname.text.toString())) {
-                    etFullname.error = "Required";
-                    etFullname.requestFocus();
-                } else if (TextUtils.isEmpty(etPhone.text.toString())) {
-                    etPhone.error = "Required";
-                    etPhone.requestFocus();
-                } else if (TextUtils.isEmpty(etPassword.text.toString())) {
-                    etPassword.error = "Required";
-                    etPassword.requestFocus();
-                } else if (TextUtils.isEmpty(etReenterPassword.text.toString())) {
-                    etReenterPassword.error = "Required";
-                    etReenterPassword.requestFocus();
-                } else if (!etPassword.text.toString().equals(etReenterPassword.text.toString())) {
-                    etReenterPassword.error = "Password Doesnot Match";
-                    etReenterPassword.requestFocus();
-                } else {
-
+                if (areFieldValid()) {
                     val fullname = etFullname.text.toString();
                     val phone = etPhone.text.toString();
                     val password = etPassword.text.toString();
@@ -64,10 +48,42 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                     val signup = User(fullName = fullname, password = password, phone = phone);
 
                     //Intent to go back to signin page
-                    startActivity(Intent(this, LoginActivity::class.java));
+                    gotoLogin()
                 }
             }
         }
+    }
+
+    private fun areFieldValid(): Boolean {
+
+        if (TextUtils.isEmpty(etFullname.text.toString())) {
+            etFullname.error = "Required";
+            etFullname.requestFocus();
+            return false;
+        } else if (TextUtils.isEmpty(etPhone.text.toString())) {
+            etPhone.error = "Required";
+            etPhone.requestFocus();
+            return false;
+        } else if (TextUtils.isEmpty(etPassword.text.toString())) {
+            etPassword.error = "Required";
+            etPassword.requestFocus();
+            return false;
+        } else if (TextUtils.isEmpty(etReenterPassword.text.toString())) {
+            etReenterPassword.error = "Required";
+            etReenterPassword.requestFocus();
+            return false;
+        } else if (!etPassword.text.toString().equals(etReenterPassword.text.toString())) {
+            etReenterPassword.error = "Password Doesnot Match";
+            etReenterPassword.requestFocus();
+            return false;
+        }
+        return true;
+
+    }
+
+    private fun gotoLogin() {
+        //Intent to go back to signin page
+        startActivity(Intent(this, LoginActivity::class.java));
     }
 
 }
