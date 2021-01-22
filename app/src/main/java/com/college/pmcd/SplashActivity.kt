@@ -12,6 +12,11 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_slide)
+        Splash();
+    }
+
+    //Splash Function
+    private fun Splash() {
         splash.launch {
             delay(5000);
             val intent = Intent(this@SplashActivity, LoginActivity::class.java);
@@ -20,8 +25,9 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
+    //Cancel splash on hidding app from user
     override fun onPause() {
         super.onPause()
-        splash.cancel();
+        splash.cancel()
     }
 }
