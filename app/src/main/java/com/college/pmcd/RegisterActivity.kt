@@ -22,6 +22,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide();
         setContentView(R.layout.activity_register);
 
         etFullname = findViewById(R.id.etFullname);

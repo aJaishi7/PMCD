@@ -72,6 +72,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         val login: User = User();
         if (login.isLogin(username, password)) {
+            startActivity(Intent(this,DashboardActivity::class.java));
             Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
             return true
         } else {
