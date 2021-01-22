@@ -69,4 +69,5 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
+
 }

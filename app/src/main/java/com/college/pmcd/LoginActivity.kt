@@ -39,27 +39,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.btnLogin -> {
 
-                when {
-                    TextUtils.isEmpty(etUsername.text.toString()) -> {
-                        etUsername.error = "Required";
-                        etUsername.requestFocus();
-                    }
-                    TextUtils.isEmpty(etPassword.text.toString()) -> {
-                        etPassword.error = "Required";
-                        etPassword.requestFocus();
-                    }
-                    else -> {
+                if (isValid()) {
 
-                        val login: User = User();
-                        val username = etUsername.text.toString();
-                        val password = etPassword.text.toString();
-                        if (login.isLogin(username, password)) {
-                            Snackbar.make(v, "Welcome", Snackbar.LENGTH_SHORT).show();
-                        } else {
-                            Snackbar.make(v, "Enter Valid Credentials", Snackbar.LENGTH_SHORT)
-                                .show();
-                        }
-                    }
+                    val username = etUsername.text.toString();
+                    val password = etPassword.text.toString();
+                    //Function that Check Username and Password
+                    checkLogin(username = username, password = password);
+
                 }
             }
             R.id.registerInfo -> {
@@ -68,4 +54,32 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun isValid(): Boolean {
+        if (TextUtils.isEmpty(etUsername.text.toString())) {
+            etUsername.error = "Required";
+            etUsername.requestFocus();
+            return false;
+        } else if (TextUtils.isEmpty(etPassword.text.toString())) {
+            etPassword.error = "Required";
+            etPassword.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+
+    private fun checkLogin(username: String, password: String): Boolean {
+
+        val login: User = User();
+        if (login.isLogin(username, password)) {
+            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+            return true
+        } else {
+            Toast.makeText(this, "Enter Valid Credentials", Toast.LENGTH_SHORT)
+                .show();
+            return false
+        }
+
+    }
 }
+
