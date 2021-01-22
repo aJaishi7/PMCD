@@ -78,12 +78,10 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             return false;
         }
         return true;
-
     }
 
     private fun gotoLogin() {
         //Intent to go back to signin page
         startActivity(Intent(this, LoginActivity::class.java));
     }
-
 }
